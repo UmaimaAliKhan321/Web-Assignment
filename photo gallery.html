@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery with Lightbox</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            
+        }
+        header {
+            background-color:lightgreen;
+            padding: 60px;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Body styling */
+        {
+            font-family: Arial, sans-serif;
+            background-color:white;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            background-color: #2f7e3d;
+
+        }
+        nav a{
+            color:white;
+            font-weight: bold;
+            padding:10px;
+        }
+       nav a:hover{
+        color: blue; 
+        border-radius: 20px;
+       }
+       .top1{
+        border:2px solid black;
+        background-color: olivedrab;
+        border-radius: 20px;
+        padding:15px;
+        text-align: center;
+        
+       }
+       .top2{
+        border:2px solid black;
+        background-color: olivedrab;
+        border-radius: 20px;
+        padding:15px;
+        text-align: center;
+        
+       }
+       .top3{
+        border:2px solid black;
+        background-color: olivedrab;
+        border-radius: 20px;
+        padding:15px;
+        text-align: center;
+        
+       }
+       .top4{
+        border:2px solid black;
+        background-color: olivedrab;
+        border-radius: 20px;
+        padding:15px;
+        text-align: center;
+       }
+       .top5{
+        border:2px solid black;
+        background-color: olivedrab;
+        border-radius: 20px;
+        padding:15px;
+        text-align: center;
+       }
+        /* Page Title */
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        /* Gallery Container */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Image Styling */
+        .gallery img {
+            height:100%;
+            width: 100%;
+            cursor: pointer;
+           /* transition: transform 0.3s ease;*/
+        }
+
+        /* Hover Effect */
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox Background */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Lightbox Image */
+        .lightbox img {
+            /*max-width: 90%;
+            max-height: 80%;*/
+            height:60%;
+            width:60%;
+            border-radius: 8px;
+        }
+
+        /* Close Button */
+       .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30p;
+            color:rgb(107, 107, 185);
+            cursor: pointer;
+        }
+
+        /*Footer Styling*/ 
+        footer{
+        background-color: #2f7e3d;
+        text-align: center;
+        padding: 20px;
+        font-size: larger;
+       }
+       
+    </style>
+</head>
+<body>
+<header>
+    <div class="a222">
+    <h1><font size="15">My Photo Gallery</font></h1>
+    </div>
+    <header>
+    <nav class="nav">
+        <div class="top1"><a href="homepage.html"><font size="5">homepage</font></a></div>
+        <div class="top2"><a href="workout.html"><font size="5">workout</font></a></div>
+        <div class="top3"><a href="nutrition.html"><font size="5">nutrition</font></a></div>
+        <div class="top5"><a href="photo gallery.html"><font size="5">photo galllery</font></a></div>
+        <div class="top4"><a href="contact.html"><font size="5">contact</font></a></div>
+
+    </nav>
+
+    <!-- Gallery -->
+    <div class="gallery">
+        <img src="a.jpg" alt="Image 1" onclick="openLightbox(this.src)">
+        <img src="b.jpg" alt="Image 2" onclick="openLightbox(this.src)">
+        <img src="d.jpg" alt="Image 3" onclick="openLightbox(this.src)">
+        <img src="c.jpg" alt="Image 4" onclick="openLightbox(this.src)">
+        <img src="55.jpeg" alt="Image 5" onclick="openLightbox(this.src)">
+        <img src="pp.jpg" alt="Image 6" onclick="openLightbox(this.src)">
+        <img src="33.jpeg" alt="Image 7" onclick="openLightbox(this.src)">
+        <img src="44.jpeg" alt="Image 8" onclick="openLightbox(this.src)">
+        <img src="66.jpeg" alt="Image 8" onclick="openLightbox(this.src)">
+        <img src="e.jpg" alt="Image 8" onclick="openLightbox(this.src)">
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Expanded view">
+    </div>
+
+    <script>
+        // Open Lightbox
+        function openLightbox(src) {
+            document.getElementById("lightbox").style.display = "flex";
+            document.getElementById("lightboxImage").src = src;
+        }
+
+        // Close Lightbox
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+   <footer>
+    <p>&copy; 2023 FitLife Wellness. All Rights Reserved.</br></br>
+         
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i>facbook</a></br>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i>twitter</a></br>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i>youtube</a></br>
+    </p>
+</footer>
+</body>
+</html>
